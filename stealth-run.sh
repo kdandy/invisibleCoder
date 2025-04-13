@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "=== Interview Coder - Invisible Edition (No Paywall) ==="
+echo "=== InvisibleCoder - Invisible Edition (No Paywall) ==="
 echo
 echo "IMPORTANT: This app is designed to be INVISIBLE by default!"
 echo "Use the keyboard shortcuts to control it:"
