@@ -6,6 +6,8 @@ interface WelcomeScreenProps {
 }
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpenSettings }) => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <div className="bg-black min-h-screen flex flex-col items-center justify-center p-6">
       <div className="max-w-md w-full bg-black border border-white/10 rounded-xl p-6 shadow-lg">
@@ -67,6 +69,10 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpenSettings }) 
         <div className="text-white/40 text-xs text-center">
           Start by taking screenshots of your coding problem (Ctrl+H / Cmd+H)
         </div>
+      </div>
+
+      <div className="text-white/40 text-xs text-center mt-4">
+        © {currentYear} Dandy Faishal Fahmi - All Rights Reserved
       </div>
     </div>
   );
