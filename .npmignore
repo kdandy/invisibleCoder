@@ -1,0 +1,33 @@
+# Development files
+.git
+.github
+.vscode
+node_modules
+.editorconfig
+.eslintrc.js
+.prettierrc
+.env
+.env.*
+*.log
+
+# Build artifacts
+release
+dist
+dist-electron
+*.tsbuildinfo
+
+# Source files that aren't needed in the package
+src/tests
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Documentation
+docs
+*.md
+!README.md
+!LICENSE
+
+# Assets not needed for npm
+assets/screenshots

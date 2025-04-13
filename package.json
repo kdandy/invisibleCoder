@@ -12,10 +12,11 @@
     "run-prod": "cross-env NODE_ENV=production electron ./dist-electron/main.js",
     "package": "npm run build && electron-builder build",
     "package-mac": "npm run build && electron-builder build --mac",
-    "package-win": "npm run build && electron-builder build --win"
+    "package-win": "npm run build && electron-builder build --win",
+    "prepublishOnly": "npm run build"
   },
   "build": {
-    "appId": "com.chunginlee.interviewcoder",
+    "appId": "com.dandyfaishalfahmi.invisiblecoder",
     "productName": "InvisibleCoder",
     "files": [
       "dist/**/*",
@@ -48,7 +49,7 @@
           ]
         }
       ],
-      "artifactName": "Interview-Coder-${arch}.${ext}",
+      "artifactName": "InvisibleCoder-${arch}.${ext}",
       "icon": "assets/icons/mac/icon.icns",
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
@@ -57,9 +58,9 @@
       "identity": "Developer ID Application",
       "notarize": true,
       "protocols": {
-        "name": "interview-coder-protocol",
+        "name": "invisiblecoder-protocol",
         "schemes": [
-          "interview-coder"
+          "invisiblecoder"
         ]
       }
     },
@@ -70,9 +71,9 @@
       "icon": "assets/icons/win/icon.ico",
       "artifactName": "${productName}-Windows-${version}.${ext}",
       "protocols": {
-        "name": "interview-coder-protocol",
+        "name": "invisiblecoder-protocol",
         "schemes": [
-          "interview-coder"
+          "invisiblecoder"
         ]
       }
     },
@@ -83,9 +84,9 @@
       "icon": "assets/icons/png/icon-256x256.png",
       "artifactName": "${productName}-Linux-${version}.${ext}",
       "protocols": {
-        "name": "interview-coder-protocol",
+        "name": "invisiblecoder-protocol",
         "schemes": [
-          "interview-coder"
+          "invisiblecoder"
         ]
       }
     },
@@ -93,7 +94,7 @@
       {
         "provider": "github",
         "owner": "ibttf",
-        "repo": "interview-coder",
+        "repo": "invisiblecoder",
         "private": false,
         "releaseType": "release"
       }
@@ -116,11 +117,22 @@
     "coding",
     "interview prep",
     "technical interview",
-    "tool"
+    "tool",
+    "electron",
+    "ai-assisted",
+    "programming"
   ],
-  "author": "InvisibleCoder Contributors",
+  "author": "Dandy Faishal Fahmi",
   "license": "AGPL-3.0-or-later",
   "description": "An invisible desktop application to help you pass your technical interviews.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdandy/invisibleCoder.git"
+  },
+  "homepage": "https://github.com/kdandy/invisibleCoder#readme",
+  "bugs": {
+    "url": "https://github.com/kdandy/invisibleCoder/issues"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@electron/notarize": "^2.3.0",
