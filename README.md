@@ -248,7 +248,7 @@ The packaged applications will be available in the `release` directory.
    - Window remains invisible to specified screen sharing applications
    - Start a new problem using [Control or Cmd + R]
 
-6. **Language Selection
+6. **Language Selection**
 
    - Easily switch between programming languages with a single click
    - Use arrow keys for keyboard navigation through available languages
