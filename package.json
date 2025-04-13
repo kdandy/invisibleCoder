@@ -1,0 +1,206 @@
+{
+  "name": "interview-coder-v1",
+  "version": "1.0.19",
+  "main": "./dist-electron/main.js",
+  "scripts": {
+    "clean": "npx rimraf dist dist-electron",
+    "dev": "cross-env NODE_ENV=development npm run clean && concurrently \"tsc -w -p tsconfig.electron.json\" \"vite\" \"wait-on -t 30000 http://localhost:54321 && electron ./dist-electron/main.js\"",
+    "test": "echo \"No tests defined. Please contribute if you like\" && exit 0",
+    "lint": "npx eslint .",
+    "start": "cross-env NODE_ENV=development concurrently \"tsc -p tsconfig.electron.json\" \"vite\" \"wait-on -t 30000 http://localhost:54321 && electron ./dist-electron/main.js\"",
+    "build": "cross-env NODE_ENV=production npm run clean && vite build && tsc -p tsconfig.electron.json",
+    "run-prod": "cross-env NODE_ENV=production electron ./dist-electron/main.js",
+    "package": "npm run build && electron-builder build",
+    "package-mac": "npm run build && electron-builder build --mac",
+    "package-win": "npm run build && electron-builder build --win"
+  },
+  "build": {
+    "appId": "com.chunginlee.interviewcoder",
+    "productName": "Interview Coder",
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json",
+      "electron/**/*"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "asar": true,
+    "compression": "maximum",
+    "generateUpdatesFilesForAllChannels": true,
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "artifactName": "Interview-Coder-${arch}.${ext}",
+      "icon": "assets/icons/mac/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "identity": "Developer ID Application",
+      "notarize": true,
+      "protocols": {
+        "name": "interview-coder-protocol",
+        "schemes": [
+          "interview-coder"
+        ]
+      }
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icons/win/icon.ico",
+      "artifactName": "${productName}-Windows-${version}.${ext}",
+      "protocols": {
+        "name": "interview-coder-protocol",
+        "schemes": [
+          "interview-coder"
+        ]
+      }
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "assets/icons/png/icon-256x256.png",
+      "artifactName": "${productName}-Linux-${version}.${ext}",
+      "protocols": {
+        "name": "interview-coder-protocol",
+        "schemes": [
+          "interview-coder"
+        ]
+      }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "ibttf",
+        "repo": "interview-coder",
+        "private": false,
+        "releaseType": "release"
+      }
+    ],
+    "extraResources": [
+      {
+        "from": ".env",
+        "to": ".env",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "extraMetadata": {
+      "main": "dist-electron/main.js"
+    }
+  },
+  "keywords": [
+    "interview",
+    "coding",
+    "interview prep",
+    "technical interview",
+    "tool"
+  ],
+  "author": "Interview Coder Contributors",
+  "license": "AGPL-3.0-or-later",
+  "description": "An invisible desktop application to help you pass your technical interviews.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@electron/notarize": "^2.3.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.2",
+    "@supabase/supabase-js": "^2.49.4",
+    "@tanstack/react-query": "^5.64.0",
+    "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "diff": "^7.0.0",
+    "dotenv": "^16.4.7",
+    "electron-log": "^5.2.4",
+    "electron-store": "^10.0.0",
+    "electron-updater": "^6.3.9",
+    "form-data": "^4.0.1",
+    "lucide-react": "^0.460.0",
+    "openai": "^4.28.4",
+    "react": "^18.2.0",
+    "react-code-blocks": "^0.1.6",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.28.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "screenshot-desktop": "^1.15.0",
+    "tailwind-merge": "^2.5.5",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@electron/typescript-definitions": "^8.14.0",
+    "@eslint/css": "^0.6.0",
+    "@eslint/js": "^9.24.0",
+    "@eslint/json": "^0.11.0",
+    "@eslint/markdown": "^6.3.0",
+    "@types/color": "^4.2.0",
+    "@types/diff": "^6.0.0",
+    "@types/electron-store": "^1.3.1",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@types/screenshot-desktop": "^1.12.3",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/utils": "^8.29.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^29.1.4",
+    "electron-builder": "^24.13.3",
+    "electron-is-dev": "^3.0.1",
+    "eslint": "^8.57.1",
+    "eslint-flat-config-utils": "^2.0.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "globals": "^16.0.0",
+    "postcss": "^8.4.49",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.4.2",
+    "vite": "^6.2.5",
+    "vite-plugin-electron": "^0.28.4",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "wait-on": "^7.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
