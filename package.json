@@ -1,5 +1,5 @@
 {
-  "name": "interview-coder-v1",
+  "name": "invisiblecoder",
   "version": "1.0.19",
   "main": "./dist-electron/main.js",
   "scripts": {

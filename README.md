@@ -23,7 +23,7 @@
 > - Check your API key dashboard to verify the key is active and has sufficient credits
 > - Ensure you're using the correct API key format (OpenAI keys start with "sk-")
 >
-> The configuration file is stored at: `C:\Users\[USERNAME]\AppData\Roaming\interview-coder-v1\config.json` (on Windows) or `/Users/[USERNAME]/Library/Application Support/interview-coder-v1/config.json` (on macOS)
+> The configuration file is stored at: `C:\Users\[USERNAME]\AppData\Roaming\invisiblecoder\config.json` (on Windows) or `/Users/[USERNAME]/Library/Application Support/invisiblecoder/config.json` (on macOS)
 
 ## Free, Open-Source AI-Powered Interview Preparation Tool
 
