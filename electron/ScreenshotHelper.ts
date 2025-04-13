@@ -31,7 +31,7 @@ export class ScreenshotHelper {
       app.getPath("userData"),
       "extra_screenshots"
     )
-    this.tempDir = path.join(app.getPath("temp"), "interview-coder-screenshots")
+    this.tempDir = path.join(app.getPath("temp"), "InvisibleCoder-screenshots")
 
     // Create directories if they don't exist
     this.ensureDirectoriesExist();

@@ -156,18 +156,18 @@ function initializeHelpers() {
 
 // Auth callback handler
 
-// Register the interview-coder protocol
+// Register the invisibleCoder protocol
 if (process.platform === "darwin") {
-  app.setAsDefaultProtocolClient("interview-coder")
+  app.setAsDefaultProtocolClient("invisibleCoder")
 } else {
-  app.setAsDefaultProtocolClient("interview-coder", process.execPath, [
+  app.setAsDefaultProtocolClient("invisibleCoder", process.execPath, [
     path.resolve(process.argv[1] || "")
   ])
 }
 
 // Handle the protocol. In this case, we choose to show an Error Box.
 if (process.defaultApp && process.argv.length >= 2) {
-  app.setAsDefaultProtocolClient("interview-coder", process.execPath, [
+  app.setAsDefaultProtocolClient("invisibleCoder", process.execPath, [
     path.resolve(process.argv[1])
   ])
 }
