@@ -20,103 +20,85 @@
     "publish-github": "npm publish --registry=https://npm.pkg.github.com",
     "publish-npm": "npm publish --registry=https://registry.npmjs.org/"
   },
-  "build": {
-    "appId": "com.dandyfaishalfahmi.invisiblecoder",
-    "productName": "InvisibleCoder",
-    "files": [
-      "dist/**/*",
-      "dist-electron/**/*",
-      "package.json",
-      "electron/**/*"
-    ],
-    "directories": {
-      "output": "release",
-      "buildResources": "assets"
-    },
-    "asar": true,
-    "compression": "maximum",
-    "generateUpdatesFilesForAllChannels": true,
-    "mac": {
-      "category": "public.app-category.developer-tools",
-      "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
-        },
-        {
-          "target": "zip",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
-        }
-      ],
-      "artifactName": "InvisibleCoder-${arch}.${ext}",
-      "icon": "assets/icons/mac/icon.icns",
-      "hardenedRuntime": true,
-      "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist",
-      "identity": "Developer ID Application",
-      "notarize": true,
-      "protocols": {
-        "name": "invisiblecoder-protocol",
-        "schemes": [
-          "invisiblecoder"
-        ]
-      }
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ],
-      "icon": "assets/icons/win/icon.ico",
-      "artifactName": "${productName}-Windows-${version}.${ext}",
-      "protocols": {
-        "name": "invisiblecoder-protocol",
-        "schemes": [
-          "invisiblecoder"
-        ]
-      }
-    },
-    "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "icon": "assets/icons/png/icon-256x256.png",
-      "artifactName": "${productName}-Linux-${version}.${ext}",
-      "protocols": {
-        "name": "invisiblecoder-protocol",
-        "schemes": [
-          "invisiblecoder"
-        ]
-      }
-    },
-    "publish": [
+"build": {
+  "appId": "com.dandyfaishalfahmi.invisiblecoder",
+  "productName": "InvisibleCoder",
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "package.json",
+    "electron/**/*"
+  ],
+  "directories": {
+    "output": "release",
+    "buildResources": "assets"
+  },
+  "asar": false,
+  "compression": "maximum",
+  "generateUpdatesFilesForAllChannels": true,
+  "mac": {
+    "category": "public.app-category.developer-tools",
+    "target": [
       {
-        "provider": "github",
-        "owner": "kdandy",
-        "repo": "invisiblecoder",
-        "private": false,
-        "releaseType": "release"
-      }
-    ],
-    "extraResources": [
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      },
       {
-        "from": ".env",
-        "to": ".env",
-        "filter": [
-          "**/*"
-        ]
+        "target": "zip",
+        "arch": ["x64", "arm64"]
       }
     ],
-    "extraMetadata": {
-      "main": "dist-electron/main.js"
+    "artifactName": "InvisibleCoder-${arch}.${ext}",
+    "icon": "assets/icons/mac/icon.icns",
+    "identity": null,
+    "notarize": false,
+    "hardenedRuntime": false,
+    "gatekeeperAssess": false,
+    "entitlements": null,
+    "entitlementsInherit": null,
+    "protocols": {
+      "name": "invisiblecoder-protocol",
+      "schemes": ["invisiblecoder"]
     }
   },
+  "win": {
+    "target": ["nsis"],
+    "icon": "assets/icons/win/icon.ico",
+    "artifactName": "${productName}-Windows-${version}.${ext}",
+    "protocols": {
+      "name": "invisiblecoder-protocol",
+      "schemes": ["invisiblecoder"]
+    }
+  },
+  "linux": {
+    "target": ["AppImage"],
+    "icon": "assets/icons/png/icon-256x256.png",
+    "artifactName": "${productName}-Linux-${version}.${ext}",
+    "protocols": {
+      "name": "invisiblecoder-protocol",
+      "schemes": ["invisiblecoder"]
+    }
+  },
+  "publish": [
+    {
+      "provider": "github",
+      "owner": "kdandy",
+      "repo": "invisiblecoder",
+      "private": false,
+      "releaseType": "release"
+    }
+  ],
+  "extraResources": [
+    {
+      "from": ".env",
+      "to": ".env",
+      "filter": ["**/*"]
+    }
+  ],
+  "extraMetadata": {
+    "main": "dist-electron/main.js"
+  }
+},
   "keywords": [
     "interview",
     "coding",
