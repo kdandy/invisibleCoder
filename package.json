@@ -1,7 +1,10 @@
 {
-  "name": "invisiblecoder",
+  "name": "@kdandy/invisiblecoder",
   "version": "1.0.19",
   "main": "./dist-electron/main.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "clean": "npx rimraf dist dist-electron",
     "dev": "cross-env NODE_ENV=development npm run clean && concurrently \"tsc -w -p tsconfig.electron.json\" \"vite\" \"wait-on -t 30000 http://localhost:54321 && electron ./dist-electron/main.js\"",
@@ -13,7 +16,9 @@
     "package": "npm run build && electron-builder build",
     "package-mac": "npm run build && electron-builder build --mac",
     "package-win": "npm run build && electron-builder build --win",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish-github": "npm publish --registry=https://npm.pkg.github.com",
+    "publish-npm": "npm publish --registry=https://registry.npmjs.org/"
   },
   "build": {
     "appId": "com.dandyfaishalfahmi.invisiblecoder",
@@ -93,7 +98,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "ibttf",
+        "owner": "kdandy",
         "repo": "invisiblecoder",
         "private": false,
         "releaseType": "release"
