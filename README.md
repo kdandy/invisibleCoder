@@ -1,4 +1,26 @@
-# InvisibleCoder
+<h1 align="center">InvisibleCoder</h1>
+
+<p align="center">
+  <img src="https://www.interviewcoder.co/logo.svg" alt="InvisibleCoder Logo" width="200" />
+</p>
+
+---
+
+<p align="center">
+  <em>An invisible desktop app to help you silently ace technical interviews — powered by AI.</em>
+</p>
+
+---
+
+## 🎬 Demo Video
+
+<p align="center">
+  <video width="720" controls>
+    <source src="https://www.interviewcoder.co/videos/amazon.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
+
 
 > ## ⚠️ IMPORTANT NOTICE TO THE COMMUNITY ⚠️
 > 
