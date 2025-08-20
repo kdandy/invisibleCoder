@@ -147,7 +147,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.28.1",
     "react-syntax-highlighter": "^15.6.1",
-    "screenshot-desktop": "^1.15.0",
+    "screenshot-desktop": "^1.15.2",
     "tailwind-merge": "^2.5.5",
     "uuid": "^11.0.3"
   },
